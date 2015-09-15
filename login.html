@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nufarmMaxx">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Nufarm - Login</title>
+
+	<!-- librerías opcionales que activan el soporte de HTML5 para IE8 -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- CSS de Bootstrap -->
+	<link href="assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="assets/bootstrap-3.3.4/css/bootstrap-social.css" rel="stylesheet" media="screen">
+
+	<!-- CSS de font-awesome-4.3.0 para iconos sociales-->
+	<link href="assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
+
+	<!-- CSS -->
+	<link href="assets/css/estilos.css?v=01" rel="stylesheet" media="screen">
+	<style>
+	.animate-enter {
+		-webkit-transition: 1s linear all; /* Chrome */
+		transition: 1s linear all;
+		opacity: 0;
+	}
+	 
+	.animate-enter.animate-enter-active {
+		opacity: 1;
+	}
+
+	[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+	    display: none !important;
+	}
+	</style>
+</head>
+<body ng-controller="loginController" ng-cloak>
+
+
+
+	<form ng-submit="loginMe();" ng-show="loginContainer">
+		<div class="container" id="login">
+
+			<div class="login-top">
+				<img src="assets/images/logo-white.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+				<img src="assets/images/logo-green.png" id="Nufarm Gold" title="Nufarm Gold" alt="Imagen no encontrada">
+			</div>
+
+			<div class="login-dialog">
+				<form name="" action="" method="" id="">
+					<label>
+						usuario
+					</label>
+					<input type="text" ng-model="user">
+					<p>
+						Complete los campos obligatorios.
+					</p>
+
+					<label>
+						clave
+					</label>
+					<input type="password" ng-model="pass">
+					<p>
+						Complete los campos obligatorios.
+					</p>
+					<div class="btn">
+						<button type="submit">ingresar</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</form>
+
+
+		<div class="container-fluid" ng-show="contenido">
+			<div class="col-xs-12 head">
+				<div class="inner">
+					<img src="assets/images/logo-white.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+					<img src="assets/images/logo-green.png" id="Nufarm Gold" title="Nufarm Gold" alt="Imagen no encontrada">
+				</div>
+			</div>
+
+			<div class="col-xs-12 top-menu">
+				<div class="inner">
+					<a href="#">
+						condiciones comerciales
+					</a>
+					<a href="#">
+						contacto
+					</a>
+				</div>
+			</div>
+
+			<div class="inner">
+
+				<div ng-show="accesos.mk" ng-animate="'accesos'" class="col-xs-12 col-sm-4 login-box" id="box1">
+					<div class="icon">
+						<img src="assets/images/icon-a.png">
+					</div>
+					<h3>Marketing<br><span>Net</span></h3>
+					<p class="pre">
+						Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores...
+					</p>
+					<a href="#" class="show-more">
+						<span>más info</span>
+					</a>
+					<a href="#" class="goto" ng-click="go_mk()">
+						ver catálogo
+					</a>
+				</div>
+
+				<div ng-show="accesos.ve" ng-animate="'accesos'" class="col-xs-12 col-sm-4 login-box" id="box2">
+					<div class="icon">
+						<img src="assets/images/icon-b.png">
+					</div>
+					<h3>vendedor<br><span>estrella</span></h3>
+					<p class="pre">
+						Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores...
+					</p>
+					<a href="#" class="show-more">
+						<span>más info</span>
+					</a>
+					<a href="#" class="goto"  ng-click="go_ve()">
+						ver estado
+					</a>
+				</div>
+
+				<div ng-show="accesos.pn" ng-animate="'accesos'" class="col-xs-12 col-sm-4 login-box" id="box3">
+					<div class="icon">
+						<img src="assets/images/icon-c.png">
+					</div>
+					<h3>Plan<br><span class="de"> de </span><span>Negocios</span></h3>
+					<p class="pre">
+						Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores...
+					</p>
+					<a href="#" class="show-more">
+						<span>más info</span>
+					</a>
+					<a href="#" class="goto" ng-click="go_pn()">
+						ver estado
+					</a>
+				</div>
+
+			<!-- 	<div class="col-xs-12 info-box">
+					<div class="col-xs-4">
+						<p>
+							Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores seleccionados, con el fin de realizar acciones de marketing en conjunto.
+							<br>
+							El objetivo de este programa es generar un vínculo directo entre Nufarm y su red de distribuidores, unificando la comunicación y la aplicación la imagen corporativa.
+							<br>
+							<br>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de tu empresa
+							</span>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de nufarm
+							</span>
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<p>
+							<span>
+								ARTÍCULOS PROMOCIONALES<br>CON IDENTIFICACIÓN DE MARCA.
+							</span>
+							La realización de artículos promocionales permite crear una buena identificación de marca a la vez de unificar la imagen de Nufarm a nivel país.
+							<br>
+							La compra centralizada permite lograr buenos costos y por sobre todo una calidad homogénea y asegurada.
+							<br>
+							<br>
+							Este programa te permitirá tener material promocional con:
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<img class="img-responsive" src="assets/images/imagen-A.png">
+					</div>
+
+					<div class="col-xs-12">
+						<a href="#" class="goto">
+							ir a catálogo marketing net
+						</a>
+					</div>
+				</div>
+
+				<div class="col-xs-12 info-box">
+					<div class="col-xs-4">
+						<p>
+							Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores seleccionados, con el fin de realizar acciones de marketing en conjunto.
+							<br>
+							El objetivo de este programa es generar un vínculo directo entre Nufarm y su red de distribuidores, unificando la comunicación y la aplicación la imagen corporativa.
+							<br>
+							<br>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de tu empresa
+							</span>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de nufarm
+							</span>
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<p>
+							<span>
+								ARTÍCULOS PROMOCIONALES<br>CON IDENTIFICACIÓN DE MARCA.
+							</span>
+							La realización de artículos promocionales permite crear una buena identificación de marca a la vez de unificar la imagen de Nufarm a nivel país.
+							<br>
+							La compra centralizada permite lograr buenos costos y por sobre todo una calidad homogénea y asegurada.
+							<br>
+							<br>
+							Este programa te permitirá tener material promocional con:
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<img class="img-responsive" src="assets/images/imagen-A.png">
+					</div>
+
+					<div class="col-xs-12">
+						<a href="#" class="goto">
+							ver estado
+						</a>
+					</div>
+				</div>
+
+				<div class="col-xs-12 info-box">
+					<div class="col-xs-4">
+						<p>
+							Se trata de una iniciativa de cooperación integral, que Nufarm le brinda a un grupo de distribuidores seleccionados, con el fin de realizar acciones de marketing en conjunto.
+							<br>
+							El objetivo de este programa es generar un vínculo directo entre Nufarm y su red de distribuidores, unificando la comunicación y la aplicación la imagen corporativa.
+							<br>
+							<br>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de tu empresa
+							</span>
+							<span>
+								<i class="glyphicon glyphicon-chevron-right"></i> el logo de nufarm
+							</span>
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<p>
+							<span>
+								ARTÍCULOS PROMOCIONALES<br>CON IDENTIFICACIÓN DE MARCA.
+							</span>
+							La realización de artículos promocionales permite crear una buena identificación de marca a la vez de unificar la imagen de Nufarm a nivel país.
+							<br>
+							La compra centralizada permite lograr buenos costos y por sobre todo una calidad homogénea y asegurada.
+							<br>
+							<br>
+							Este programa te permitirá tener material promocional con:
+						</p>
+					</div>
+
+					<div class="col-xs-4">
+						<img class="img-responsive" src="assets/images/imagen-A.png">
+					</div>
+
+					<div class="col-xs-12">
+						<a href="#" class="goto">
+							ver estado
+						</a>
+					</div>
+				</div> -->
+
+			</div><!-- end inner -->
+		</div>
+
+		
+
+		<!-- // CONTENEDOR GENERAL*********************************************-->
+
+		<div class="footer">
+            <img src="assets/images/Nufarm-max-logo-verde.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+        </div>
+
+
+		<!-- Librería jS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="assets/js/eventos.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/angular-animate.min.js"></script>
+		<script src="js/services.js"></script>
+		<script src="js/loginController.js"></script>
+	</body>
+</html>
+
+
+
