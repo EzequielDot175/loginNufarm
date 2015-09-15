@@ -15,10 +15,12 @@ app.controller('loginController', ['$scope','ajax', function(scp,ajx){
 
 	ajx.isLogged(function(a){
 		console.info('Reporting isLogged:', a);
-		if (a.error == undefined) {
+		
+		if (a.idUsuario || a.id) {
 			scp.logged = true;
 			scp.contenido = true;
-			scp.checkAccesos(a.gold)
+			scp.checkAccesos(a.gold);
+			scp.loginContainer = false;
 			scp.auth = a;
 		};
 	});
