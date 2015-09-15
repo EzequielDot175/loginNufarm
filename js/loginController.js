@@ -14,7 +14,7 @@ app.controller('loginController', ['$scope','ajax', function(scp,ajx){
 	scp.contenido = false;
 
 	ajx.isLogged(function(a){
-		console.info('Reporting isLogged:', a);
+		
 		
 		if (a.idUsuario || a.id) {
 			scp.logged = true;
@@ -32,7 +32,6 @@ app.controller('loginController', ['$scope','ajax', function(scp,ajx){
 				alert('Usuario y/o contraseña incorrecta');
 				return;
 			}else{
-				console.log(a);
 				scp.logged = true;
 				scp.contenido = true;
 				scp.loginContainer = false;
@@ -48,7 +47,6 @@ app.controller('loginController', ['$scope','ajax', function(scp,ajx){
 
 	scp.checkAccesos = function(isGold){
 		var gold = Boolean(parseInt(isGold)) ;
-		console.info('Reporting checkAccesos:', gold);
 
 		if (gold) {
 			scp.accesos = {
