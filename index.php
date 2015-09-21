@@ -3,6 +3,10 @@
 
 	$login = Auth::checkLogin();
 
+	echo "<pre>";
+	print_r(session_save_path());
+	echo "</pre>";
+
 	if(isset($_POST['_token'])):
 
 		if(Token::check($_POST['_token'])):
