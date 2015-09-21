@@ -13,6 +13,7 @@
 		Token::generate();
 	endif;
 	
+	Token::all();
 	if($login->check):
 		Auth::startSession();
 		
